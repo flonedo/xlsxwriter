@@ -1,7 +1,7 @@
 import xlsxwriter
 import datetime
 # Create a workbook and add a worksheet.
-workbook = xlsxwriter.Workbook('Export.xlsx', {'constant_memory': True})
+workbook = xlsxwriter.Workbook('Export.xlsx', {'constant_memory': False})
 worksheet = workbook.add_worksheet()
 
 # Number of rows and columns
@@ -16,9 +16,9 @@ start = datetime.datetime.now()
 print("START" + str(start))
 
 # Iterate over the data and write it out row by row.
-for x in range(columns):
-    for y in range(rows):
-        worksheet.write(y, x, data)
+for x in range(rows):
+    for y in range(columns):
+        worksheet.write(x, y, data)
 
 
 workbook.close()
